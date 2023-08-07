@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+::placeholder{
+    color: rgba(255, 255, 255, .4);
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    padding: 20px 30px;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    position: relative;
+    background: rgba(0, 0, 0, .9);
+}
+
+
+.todo-wrapper button:hover,
+.todo-wrapper button:active {
+    background: #8837ca;
+}
+.todo-wrapper button:active {
+    transform: scale(.95);
+}
+
+.title {
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.todo-wrapper{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all .5s ease;
+}
+.add-todo {
+    background: #383838;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .1);
+    position: relative;
+    transition: all .5s ease;
+}
+.add-todo.active, .search-bar.active{
+    background: #e3e3e3;
+}
+.add-todo input {
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #575757;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+.add-todo input.active, .search-bar input.active{
+    background: #a3a3a3;
+    color: #000;
+}
+.add-todo input.active::placeholder, .search-bar input.active::placeholder{
+   color: rgba(0, 0, 0, .4);
+}
+.todo-wrapper button {
+    background: #9340d6;
+    border: none;
+    outline: none;
+    color: #fff;
+    height: 36px;
+    width: 50px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 5px;
+    padding-top: 2px;
+    transition: all .5s ease;
+    cursor: pointer;
+
+}
+
+.search-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #383838;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+.search-bar.open{
+    bottom: -65px;
+    opacity: 1;
+    pointer-events: all;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.todo-list {
+    height: 370px;
+    width: 100%;
+    max-width: 500px;
+}
+
+ul {
+    background-color: #383838;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, .1);
+    overflow: auto;
+    max-height: 370px;
+    transition: all .5s ease;
+}
+ul.active{
+    background: #e3e3e3;
+}
+ul.open{
+    margin-top: 74px;
+}
+
+ul::-webkit-scrollbar {
+    width: 5px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 100px;
+}
+ul.active::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .1);
+    border-radius: 100px;
+}
+
+.list {
+    background: #575757;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all .5s ease;
+    cursor: pointer;
+    margin: 8px;
+}
+.list.active{
+    background-color: #a3a3a3;
+    color: #000;
+}
+.list:hover {
+    background-color: #535353;
+}
+.list.active:hover {
+    background-color: #b8b7b7;
+}
+
+.bx-x {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    font-size: 25px;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.list label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+label span{
+    text-transform: capitalize;
+}
+.bx-x:hover {
+    color: red;
+}
+
+label .bx-check {
+    background: #00ff00;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 1px;
+    display: none;
+    color: #fff;
+}
+
+input[type="checkbox"]:checked+label .bx-check {
+    display: inline;
+}
